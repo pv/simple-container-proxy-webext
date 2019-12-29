@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+  "name": "Simple container proxy",
+  "version": "0.0.1",
+  "description": "Use a given proxy in a given container",
+  "applications": {
+    "gecko": {
+      "id": "simple-container-proxy@pav.iki.fi",
+      "strict_min_version": "67.0"
+    }
+  },
+  "icons": {
+    "48": "icon.svg",
+    "96": "icon.svg"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true,
+    "browser_style": true
+  },
+  "permissions": [
+    "<all_urls>",
+    "storage",
+    "contextualIdentities",
+    "cookies",
+    "proxy"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  }
+}

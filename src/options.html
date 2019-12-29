@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script language="javascript" type="text/javascript" src="options.js"></script>
+  </head>
+  <body>
+    <h1>Container proxies</h1>
+
+    <div>
+      <button id="save-button" type="button">Save changes</button>
+    </div>
+
+    <div>
+      All proxies are SOCKS5 with DNS resolution.
+    </div>
+
+    <div>
+      <h2>Default proxy</h2>
+      <p>Applies when a container has no specified proxy</p>
+      <div id="default-proxy">
+        <span>Default: </span>
+        <input class="default-container proxy">
+      </div>
+    </div>
+
+    <div>
+      <h2>Containers</h2>
+      <p>Proxies for each container</p>
+      <div id="containers"></div>
+    </div>
+  </body>
+</html>
