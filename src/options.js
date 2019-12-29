@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
         var proxy = document.querySelector('.default-container.proxy')
         var new_proxymap = new Map()
 
+        new_proxymap.set(null, { type: "direct" })
         save_one_proxy(new_proxymap, null, proxy.value)
 
         var k = 0
@@ -82,18 +83,29 @@ document.addEventListener("DOMContentLoaded", function() {
         clear()
 
         for (let k = 0; k < containers.length; ++k) {
-            var div = document.createElement('div')
-            div.setAttribute('class', 'proxydiv')
+            var tr = document.createElement('tr')
+            tr.setAttribute('class', 'proxydiv')
+
+            var td = document.createElement('td')
+            tr.append(td)
+
+            var icon = document.createElement('span')
+            icon.setAttribute('class',
+                              'img identity-color-' + containers[k].color + ' identity-icon-' + containers[k].icon);
+            td.append(icon)
 
             var name = document.createElement('span')
             name.innerText = containers[k].name + ': '
-            div.append(name)
+            td.append(name)
 
             var cookieStoreId = document.createElement('input')
             cookieStoreId.setAttribute('class', 'container-' + k + ' cookieStoreId')
             cookieStoreId.setAttribute('type', 'hidden')
             cookieStoreId.value = containers[k].cookieStoreId
-            div.append(cookieStoreId)
+            td.append(cookieStoreId)
+
+            var td = document.createElement('td')
+            tr.append(td)
 
             var proxy = document.createElement('input')
             proxy.setAttribute('class', 'container-' + k + ' proxy')
@@ -107,9 +119,9 @@ document.addEventListener("DOMContentLoaded", function() {
                     proxy.value = '' + proxy_info.host + ':' + proxy_info.port
                 }
             }
-            div.append(proxy)
+            td.append(proxy)
 
-            container_div.append(div)
+            container_div.append(tr)
         }
     }
 

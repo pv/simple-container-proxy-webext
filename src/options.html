@@ -3,31 +3,47 @@
   <head>
     <meta charset="utf-8">
     <script language="javascript" type="text/javascript" src="options.js"></script>
+    <link rel="stylesheet" href="chrome://browser/skin/preferences/in-content/containers.css" type="text/css">
+    <style>
+      tt { background-color: #eee; padding-left: 2px; padding-right: 2px; }
+      td, td span, td input {
+          vertical-align: middle;
+      }
+      #containers .img {
+          display: inline-block;
+          height: 1.5em;
+          width: 1.5em;
+          -moz-context-properties: fill;
+          background-image: var(--identity-icon);
+          fill: var(--identity-icon-color);
+          margin-right: 0.5em;
+          background-size: contain;
+          background-repeat: no-repeat;
+      }
+    </style>
   </head>
   <body>
-    <h1>Container proxies</h1>
-
     <div>
+      The text box can either contain <tt>direct</tt>
+      (for no proxy) or <tt>hostname:port</tt> (for SOCKS5 proxy with DNS resolution;
+      other proxy types are not supported).
+      Text boxes left empty use the default proxy.
+    </div>
+
+    <div style="margin: 1em;">
       <button id="save-button" type="button">Save changes</button>
     </div>
 
     <div>
-      All proxies are SOCKS5 with DNS resolution.
-    </div>
-
-    <div>
-      <h2>Default proxy</h2>
-      <p>Applies when a container has no specified proxy</p>
       <div id="default-proxy">
-        <span>Default: </span>
+        <span>Default proxy: </span>
         <input class="default-container proxy">
       </div>
     </div>
 
     <div>
-      <h2>Containers</h2>
-      <p>Proxies for each container</p>
-      <div id="containers"></div>
+      <p>Proxies for each container:</p>
+      <table id="containers"></div>
     </div>
   </body>
 </html>
